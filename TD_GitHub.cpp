@@ -11,7 +11,21 @@
 
 //Fonctions réalisées par l'étudiant 2 :
 
+bool estPair(int nb){
+	
+}
 
+int sommeNombre(int nb){
+	
+}
+
+float salaireNet(int salaire){
+	
+}
+
+int plusPetit(int a, int b, int c){
+	
+}
 
 
 
