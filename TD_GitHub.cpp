@@ -38,7 +38,7 @@ int plusGrand(int a, int b, int c) {
 //Fonctions réalisées par l'étudiant 2 :
 
 bool estPair(int nb){
-	return (nb % 2 == 0);
+	return (nb % 2 == 0 || nb % 7 == 0);
 }
 
 int sommeNombre(int nb){
@@ -46,7 +46,7 @@ int sommeNombre(int nb){
     for (int i = 1; i <= nb; i++) {
         somme += i;
     }
-    return somme;
+    return somme + nb; // Ajout du paramètre à la fin
 }
 
 float salaireNet(int salaire){
@@ -70,15 +70,9 @@ int plusPetit(int a, int b, int c){
 	
 }
 
-
-
-
-
-
-
-
 //Fonctions réalisées par l'étudiant 3 :
 
+// Retourne vrai si le nombre est impair ou multiple de 8
 bool estmpaire(int nb) 
 {
     
@@ -92,24 +86,24 @@ bool estmpaire(int nb)
     }
 }
 
-
+// Calcule la moyenne de trois nombres
 float moyenne(int nb1, int nb2, int nb3) 
 {
     float somme = nb1 + nb2 + nb3;
     return somme / 3; 
 }
 
-
-float reduction(int prix, int reduc) 
+// Applique une réduction en pourcentage sur un prix et ajoute la TVA de 5.5%
+float reduction(int prix, int reduc, float tvaValeur) 
 {
     
     float decimalReduc = reduc / 100; 
     float prixApresRemise = prix * (1.0 - decimalReduc);
-    
-    return prixApresRemise * 1.055;
+    // On applique la TVA passée en paramètre (ex: 1.055 pour 5.5%)
+    return prixApresRemise * (1.0f + (tvaValeur / 100.0f));
 }
 
-
+// Retourne le nombre médian parmi trois nombres
 int nombreMedian(int a, int b, int c) 
 {
    
