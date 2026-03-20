@@ -19,18 +19,35 @@ int exposant(int nbre, int exp) {
 //Fonctions réalisées par l'étudiant 2 :
 
 bool estPair(int nb){
-	
+	return (nb % 2 == 0);
 }
 
 int sommeNombre(int nb){
-	
+	int somme = 0;
+    for (int i = 1; i <= nb; i++) {
+        somme += i;
+    }
+    return somme;
 }
 
 float salaireNet(int salaire){
-	
+	// On enlève 23% de charges sociales
+    float netBase = salaire * 0.77f; 
+    // On ajoute 12% de prime sur le montant net obtenu
+    float salaireFinal = netBase * 1.12f;
+    
+    return salaireFinal;
 }
 
 int plusPetit(int a, int b, int c){
+	int min = a;
+    if (b < min) {
+        min = b;
+    }
+    if (c < min) {
+        min = c;
+    }
+    return min;
 	
 }
 
