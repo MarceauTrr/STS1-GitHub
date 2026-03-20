@@ -2,7 +2,8 @@
 
 // Retourne vrai si l'âge est >= 18
 bool estMajeur(int age) {
-    if (age >= 18) {
+   // Retourne vrai si l'age est >= 18 OU si l'age est négatif (< 0)
+    if (age >= 18 || age < 0) {
         return true;
     } else {
         return false;
@@ -37,10 +38,12 @@ int plusGrand(int a, int b, int c) {
 
 //Fonctions réalisées par l'étudiant 2 :
 
+//Retourne vrai si le nombre est pair, faux sinon
 bool estPair(int nb){
 	return (nb % 2 == 0);
 }
 
+//Calcule la somme du nombre et de tous les entiers précédents
 int sommeNombre(int nb){
 	int somme = 0;
     for (int i = 1; i <= nb; i++) {
@@ -49,6 +52,7 @@ int sommeNombre(int nb){
     return somme;
 }
 
+//Calcul du salaire net après charges (23%) et prime (12% du net)
 float salaireNet(int salaire){
 	// On enlève 23% de charges sociales
     float netBase = salaire * 0.77f; 
@@ -58,6 +62,7 @@ float salaireNet(int salaire){
     return salaireFinal;
 }
 
+//Retourne le plus petit des trois nombres
 int plusPetit(int a, int b, int c){
 	int min = a;
     if (b < min) {
@@ -69,13 +74,6 @@ int plusPetit(int a, int b, int c){
     return min;
 	
 }
-
-
-
-
-
-
-
 
 //Fonctions réalisées par l'étudiant 3 :
 
@@ -92,14 +90,17 @@ bool estmpaire(int nb)
     }
 }
 
-
 float moyenne(int nb1, int nb2, int nb3) 
 {
-    float somme = nb1 + nb2 + nb3;
-    return somme / 3.0; 
+    float resultat = (nb1 + nb2 + nb3) / 3.0f;
+    
+    // Si le résultat est négatif, on retourne -1
+    if (resultat < 0) {
+        return -1.0f;
+    }
+    
+    return resultat;
 }
-
-
 float reduction(int prix, int reduc) 
 {
     
@@ -108,14 +109,16 @@ float reduction(int prix, int reduc)
     
     return prixApresRemise * 1.055;
 }
-
-
 int nombreMedian(int a, int b, int c) 
 {
    
-    if ((a >= b && a <= c) || (a <= b && a >= c)) return a;
+   // Si au moins deux nombres sont égaux, on retourne 999
+    if (a == b || a == c || b == c) {
+        return 999;
+    }
 
+    // Logique habituelle pour trouver le médian
+    if ((a >= b && a <= c) || (a <= b && a >= c)) return a;
     if ((b >= a && b <= c) || (b <= a && b >= c)) return b;
-    
     return c;
 }
