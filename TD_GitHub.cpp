@@ -9,8 +9,11 @@ bool estMajeur(int age) {
     }
 }
 
-// Calcule nombre^exposant sans utiliser pow()
 int exposant(int nbre, int exp) {
+    // Si l'exposant est supérieur à 99, on retourne -1
+    if (exp > 99) {
+        return -1;
+    }
     int result = 1;
     for (int i = 0; i < exp; ++i) {
         result = result * nbre;
@@ -27,12 +30,21 @@ float TVA(int prix) {
     }
 }
 
-// Retourne le plus grand des trois nombres
 int plusGrand(int a, int b, int c) {
-    int max = a;
-    if (b > max) max = b;
-    if (c > max) max = c;
-    return max;
+    // Vérification si deux nombres sont égaux
+    if (a == b || a == c || b == c) {
+        // Retourne le plus petit
+        int min = a;
+        if (b < min) min = b;
+        if (c < min) min = c;
+        return min;
+    } else {
+        // Logique originale : retourne le plus grand
+        int max = a;
+        if (b > max) max = b;
+        if (c > max) max = c;
+        return max;
+    }
 }
 
 //Fonctions réalisées par l'étudiant 2 :
@@ -49,12 +61,14 @@ int sommeNombre(int nb){
     return somme;
 }
 
-float salaireNet(int salaire){
-	// On enlève 23% de charges sociales
-    float netBase = salaire * 0.77f; 
-    // On ajoute 12% de prime sur le montant net obtenu
-    float salaireFinal = netBase * 1.12f;
+float salaireNet(int salaire, float chargeSalariale, float prime) {
+ // On convertit les pourcentages en multiplicateurs
+ // Exemple : 23% de charge -> on garde (100 - 23) / 100 = 0.77
+ float netBase = salaire * ((100.0f - chargeSalariale) / 100.0f); 
     
+ // Exemple : 12% de prime -> on multiplie par (100 + 12) / 100 = 1.12
+ float salaireFinal = netBase * ((100.0f + prime) / 100.0f)
+ 
     return salaireFinal;
 }
 
@@ -69,13 +83,6 @@ int plusPetit(int a, int b, int c){
     return min;
 	
 }
-
-
-
-
-
-
-
 
 //Fonctions réalisées par l'étudiant 3 :
 
