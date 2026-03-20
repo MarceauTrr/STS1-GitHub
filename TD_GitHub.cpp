@@ -60,14 +60,14 @@ bool estmpaire(int nb)
 float moyenne(int nb1, int nb2, int nb3) 
 {
     float somme = nb1 + nb2 + nb3;
-    return somme / 3.0; 
+    return somme / 3; 
 }
 
 
 float reduction(int prix, int reduc) 
 {
     
-    float decimalReduc = reduc / 100.0; 
+    float decimalReduc = reduc / 100; 
     float prixApresRemise = prix * (1.0 - decimalReduc);
     
     return prixApresRemise * 1.055;
